@@ -19,4 +19,16 @@ function draw() {
   image(dinoImage, 100, 100, 50, 50);
 }
 
+function keyPressed() {
+  if (key == ' ') {
+ 
+  }
+}
 
+class Walker {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.speed = 5;
+  }
+}
