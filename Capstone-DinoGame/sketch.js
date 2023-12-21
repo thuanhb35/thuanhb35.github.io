@@ -5,11 +5,14 @@
 // Extra for Experts: https://p5play.org/learn/sprite_animation.html?page=2
 // - describe what you did to take this project "above and beyond"
 let dinoImage
+let dinodown
 let dino;
 let sprite;
+let value ;
 
 function preload() {
   dinoImage = loadImage("assets/dino.png")
+  dinodown = loadImage("assets/down.png")
 }
 
 function setup() {
@@ -21,21 +24,29 @@ function setup() {
   world.gravity.y = 10;
 
 	dino= new Sprite(250, 0, 50);
-	dino.img = dinoImage;
-
+  dino.addAni("down", dinodown);
+	dino.addAni("stand", dinoImage);
 	floor1 = new Sprite(90, 510, 5000, 5, 's');
 }
 
 function draw() {
   background(220);
   line(60, 510, 5000, 510);
-}
-
-function keyPressed() {
-  if (key == ' ') {
+  if (keyIsDown(32)) {
+    dino.vel.y = -5
+  }
+  if (keyIsDown(DOWN_ARROW)) {
+    dino.changeAni("down")
+    print(1)
+  ifnot (keyIsDown(DOWN_ARROW)) GO TO "STAND"
 
   }
-}
+ }
+
+function keyPressed() {
+
+  }
+
 
 
 
