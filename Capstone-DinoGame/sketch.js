@@ -22,11 +22,22 @@ function setup() {
 	sprite.height = 50;
   sprite.vel.x = -5
   world.gravity.y = 10;
+  sprite.position.x = 800;
 
 	dino= new Sprite(250, 0, 50);
   dino.addAni("down", dinodown);
 	dino.addAni("stand", dinoImage);
 	floor1 = new Sprite(90, 510, 5000, 5, 's');
+}
+
+function movebox() {
+  sprite.vel.x = -5
+  if (sprite.position.x < 0){
+    sprite.position.x = 800;
+  }
+  if (dino.collides(sprite )) {
+    print ("gameover")
+  }
 }
 
 function draw() {
@@ -37,10 +48,11 @@ function draw() {
   }
   if (keyIsDown(DOWN_ARROW)) {
     dino.changeAni("down")
-    print(1)
-  ifnot (keyIsDown(DOWN_ARROW)) GO TO "STAND"
-
+    print(1)}
+  if (keyIsDown(DOWN_ARROW)===false){
+    dino.changeAni("stand")
   }
+  movebox()
  }
 
 function keyPressed() {
@@ -60,7 +72,3 @@ function keyPressed() {
 //     }
 //   }
 // }
-
-
-
-    
