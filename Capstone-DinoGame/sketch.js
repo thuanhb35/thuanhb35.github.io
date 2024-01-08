@@ -9,6 +9,7 @@ let dinodown
 let dino;
 let sprite;
 let value ;
+let game
 
 function preload() {
   dinoImage = loadImage("assets/dino.png")
@@ -17,6 +18,10 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+initGame() ;
+}
+
+function initGame() {
   sprite = new Sprite();
 	sprite.width = 50;
 	sprite.height = 50;
@@ -28,6 +33,14 @@ function setup() {
   dino.addAni("down", dinodown);
 	dino.addAni("stand", dinoImage);
 	floor1 = new Sprite(90, 510, 5000, 5, 's');
+}
+
+function resetGame() {
+  sprite.position.x = 800;
+  dino.position.x = 250;
+  dino.position.y = 0;
+  dino.vel.x = 0;
+  dino.vel.y = 0;
 }
 
 function movebox() {
@@ -56,7 +69,7 @@ function draw() {
  }
 
 function keyPressed() {
-
+if (key=== "r") resetGame() ;
   }
 
 
